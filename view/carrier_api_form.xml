@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- This file is part of the carrier_send_shipments_seur module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='api']" position="after">
+        <page string="Redyser" id="redyser">
+            <label name="redyser_client_code"/>
+            <field name="redyser_client_code"/>
+            <label name="redyser_send_method"/>
+            <field name="redyser_send_method"/>
+            <label name="redyser_csv_header"/>
+            <field name="redyser_csv_header"/>
+            <label name="redyser_email"/>
+            <field name="redyser_email"/>
+            <label name="redyser_filename"/>
+            <field name="redyser_filename"/>
+        </page>
+    </xpath>
+</data>

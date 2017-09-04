@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!-- This file is part of the carrier_send_shipments_redyser module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <!--Carrier API -->
+        <record model="ir.ui.view" id="carrier_api_form">
+            <field name="model">carrier.api</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="carrier_api.carrier_api_form"/>
+            <field name="name">carrier_api_form</field>
+        </record>
+
+        <!-- Carrier API Redyser Zip Center -->
+        <record model="ir.ui.view" id="carrier_api_redyser_zip_tree">
+            <field name="model">carrier.api.redyser.zip</field>
+            <field name="type">tree</field>
+            <field name="name">carrier_api_redyser_zip_tree</field>
+        </record>
+        <record model="ir.ui.view" id="carrier_api_redyser_zip_form">
+            <field name="model">carrier.api.redyser.zip</field>
+            <field name="type">form</field>
+            <field name="name">carrier_api_redyser_zip_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_carrier_api_redyser_zip_form">
+            <field name="name">Redyser Zip</field>
+            <field name="res_model">carrier.api.redyser.zip</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_carrier_api_redyser_zip_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="carrier_api_redyser_zip_tree"/>
+            <field name="act_window" ref="act_carrier_api_redyser_zip_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_carrier_api_redyser_zip_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="carrier_api_redyser_zip_form"/>
+            <field name="act_window" ref="act_carrier_api_redyser_zip_form"/>
+        </record>
+        <menuitem parent="carrier_api.menu_carrier_api_form" action="act_carrier_api_redyser_zip_form"
+            id="menu_carrier_api_redyser_zip_form"/>
+
+        <!-- Carrier API Offline -->
+        <record model="ir.ui.view" id="carrier_api_redyser_offline_form">
+            <field name="model">carrier.api.redyser_offline</field>
+            <field name="type">form</field>
+            <field name="name">carrier_api_redyser_offline_form</field>
+        </record>
+        <record model="ir.ui.view" id="carrier_api_redyser_offline_tree">
+            <field name="model">carrier.api.redyser_offline</field>
+            <field name="type">tree</field>
+            <field name="name">carrier_api_redyser_offline_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_carrier_api_redyser_offline_form">
+            <field name="name">Carriers API Redyser Offline</field>
+            <field name="res_model">carrier.api.redyser_offline</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_carrier_api_redyser_offline_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="carrier_api_redyser_offline_tree"/>
+            <field name="act_window" ref="act_carrier_api_redyser_offline_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_carrier_api_redyser_offline_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="carrier_api_redyser_offline_form"/>
+            <field name="act_window" ref="act_carrier_api_redyser_offline_form"/>
+        </record>
+        <menuitem parent="carrier_api.menu_carrier_api_form"
+            action="act_carrier_api_redyser_offline_form"
+            id="menu_carrier_api_redyser_offline_form" sequence="10"/>
+
+        <!-- Wizard -->
+        <record model="ir.ui.view" id="carrier_send_shipments_redyser_send_start_view_form">
+            <field name="model">carrier.api.redyser.offline.send.start</field>
+            <field name="type">form</field>
+            <field name="name">carrier_api_redyser_offline_send_start_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_carrier_api_redyser_offline_send">
+            <field name="name">Send redyser Offline</field>
+            <field name="wiz_name">carrier.api.redyser.offline.send</field>
+        </record>
+        <menuitem name="Send Redyser Offline"
+            parent="menu_carrier_api_redyser_offline_form"
+            action="wizard_carrier_api_redyser_offline_send"
+            id="menu_carrier_api_redyser_offline_send"/>
+        <record model="ir.action.keyword" id="carrier_api_redyser_offline_send_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">carrier.api.redyser_offline,-1</field>
+            <field name="action" ref="wizard_carrier_api_redyser_offline_send"/>
+        </record>
+
+        <!-- carrier.api.redyser.zip.load wizard -->
+        <record model="ir.ui.view" id="carrier_api_redyser_load_start_view_form">
+            <field name="model">carrier.api.redyser.zip.load.start</field>
+            <field name="type">form</field>
+            <field name="name">carrier_api_redyser_zip_load_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="redyser_zip_load_wizard">
+            <field name="name">Load Redyser Zip</field>
+            <field name="wiz_name">carrier.api.redyser.zip.load</field>
+        </record>
+
+        <record model="ir.module.config_wizard.item" id="config_wizard_redyser_zip_load">
+            <field name="action" ref="redyser_zip_load_wizard"/>
+            <field name="sequence" eval="50"/>
+        </record>
+
+        <!-- Sequence -->
+        <record model="ir.sequence.type" id="sequence_type_carrier_api_redyser">
+            <field name="name">Redyser API</field>
+            <field name="code">carrier.api.redyser</field>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_carrier_api_redyser_group_admin">
+            <field name="sequence_type" ref="sequence_type_carrier_api_redyser"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_carrier_api_redyser_group_sale_admin">
+            <field name="sequence_type" ref="sequence_type_carrier_api_redyser"/>
+            <field name="group" ref="stock.group_stock_admin"/>
+        </record>
+
+        <record model="ir.sequence" id="sequence_carrier_api_redyser">
+            <field name="name">Redyser API</field>
+            <field name="code">carrier.api.redyser</field>
+        </record>
+
+        <!-- offline cron to download service file-->
+         <record model="res.user" id="user_carrier_api_redyser">
+            <field name="login">user_cron_internal_redyser</field>
+            <field name="name">Cron Carrier API Redyser</field>
+            <field name="signature"></field>
+            <field name="active" eval="False"/>
+        </record>
+        <record model="res.user-res.group" id="user_carrier_api_redyser_admin_group">
+            <field name="user" ref="user_carrier_api_redyser"/>
+            <field name="group" ref="carrier_api.group_carrier_api_admin"/>
+        </record>
+
+        <record model="ir.cron" id="cron_carrier_api_send_redyser_offline">
+            <field name="name">Send Redyser Shipments</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="user_carrier_api_redyser"/>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="number_calls">-1</field>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">carrier.api.redyser_offline</field>
+            <field name="function">send_redyser_offline</field>
+        </record>
+    </data>
+</tryton>

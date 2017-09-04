@@ -1,0 +1,280 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:carrier.api,redyser_client_code:"
+msgid "Redyser Client Code"
+msgstr "Código cliente Redyser"
+
+msgctxt "field:carrier.api,redyser_csv_header:"
+msgid "Redyser CSV Header"
+msgstr "Cabezera CSV Redyser"
+
+msgctxt "field:carrier.api,redyser_email:"
+msgid "Redyser Email"
+msgstr "Correo Redyser"
+
+msgctxt "field:carrier.api,redyser_filename:"
+msgid "Redyser Filename"
+msgstr "Nombre fichero Redyser"
+
+msgctxt "field:carrier.api,redyser_send_method:"
+msgid "Redyser Send Method"
+msgstr "Método envío Redyser"
+
+msgctxt "field:carrier.api.redyser.offline.send.start,api:"
+msgid "API"
+msgstr "API"
+
+msgctxt "field:carrier.api.redyser.offline.send.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:carrier.api.redyser.zip,center_code:"
+msgid "Center code"
+msgstr "Código centro"
+
+msgctxt "field:carrier.api.redyser.zip,center_name:"
+msgid "Center name"
+msgstr "Nombre centro"
+
+msgctxt "field:carrier.api.redyser.zip,country_code:"
+msgid "Country code"
+msgstr "Código país"
+
+msgctxt "field:carrier.api.redyser.zip,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:carrier.api.redyser.zip,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:carrier.api.redyser.zip,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:carrier.api.redyser.zip,max_pickup_time:"
+msgid "Maximum pickup time"
+msgstr "Tiempo máximo recogida"
+
+msgctxt "field:carrier.api.redyser.zip,postal_code:"
+msgid "Postal Code"
+msgstr "Código postal"
+
+msgctxt "field:carrier.api.redyser.zip,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:carrier.api.redyser.zip,service_1030:"
+msgid "Delivery 10:30"
+msgstr "Entrega 10:30"
+
+msgctxt "field:carrier.api.redyser.zip,service_saturday:"
+msgid "Delivery Saturdays"
+msgstr "Entrega sábado"
+
+msgctxt "field:carrier.api.redyser.zip,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:carrier.api.redyser.zip,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:carrier.api.redyser.zip.load.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:carrier.api.redyser_offline,api:"
+msgid "API"
+msgstr "API"
+
+msgctxt "field:carrier.api.redyser_offline,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:carrier.api.redyser_offline,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:carrier.api.redyser_offline,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:carrier.api.redyser_offline,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:carrier.api.redyser_offline,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:carrier.api.redyser_offline,shipment:"
+msgid "Shipment"
+msgstr "Envío"
+
+msgctxt "field:carrier.api.redyser_offline,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:carrier.api.redyser_offline,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:carrier.api.redyser_offline,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:stock.shipment.out,redyser_barcode:"
+msgid "Redyser Barcode"
+msgstr "Código de barras Redyser"
+
+msgctxt "field:stock.shipment.out,redyser_channeling:"
+msgid "Redyser Channeling"
+msgstr "Redyser Channeling"
+
+msgctxt "field:stock.shipment.out,redyser_current_package:"
+msgid "Package"
+msgstr "Paquete"
+
+msgctxt "help:carrier.api,redyser_email:"
+msgid "Redyser TO email"
+msgstr "Correo TO Redyser"
+
+msgctxt "help:carrier.api,redyser_filename:"
+msgid "Prefix Redyser Filename"
+msgstr "Prefijo nombre fichero Redyser"
+
+msgctxt "model:carrier.api.redyser.offline.send.start,name:"
+msgid "Carrier API Seur Offline Send Start"
+msgstr "Inicio envío API Seur Offline"
+
+msgctxt "model:carrier.api.redyser.zip,name:"
+msgid "Redyser Zip"
+msgstr "Código postal Redyser"
+
+msgctxt "model:carrier.api.redyser.zip.load.start,name:"
+msgid "Load Carrier API Redyser Zip Start"
+msgstr "Añadir códigos postales API Redyser"
+
+msgctxt "model:carrier.api.redyser_offline,name:"
+msgid "Carrier API Redyser Offline"
+msgstr "API Redyser Offline"
+
+msgctxt "model:ir.action,name:act_carrier_api_redyser_offline_form"
+msgid "Carriers API Redyser Offline"
+msgstr "API Redyser Offline"
+
+msgctxt "model:ir.action,name:act_carrier_api_redyser_zip_form"
+msgid "Redyser Zip"
+msgstr "Código postal Redyser"
+
+msgctxt "model:ir.action,name:redyser_zip_load_wizard"
+msgid "Load Redyser Zip"
+msgstr "Añandir código postal Redyser"
+
+msgctxt "model:ir.action,name:report_redyser_label"
+msgid "Redyser Label"
+msgstr "Etiqueta Redyser"
+
+msgctxt "model:ir.action,name:wizard_carrier_api_redyser_offline_send"
+msgid "Send redyser Offline"
+msgstr "Envío Redyser Offline"
+
+msgctxt "model:ir.cron,name:cron_carrier_api_send_redyser_offline"
+msgid "Send Redyser Shipments"
+msgstr "Envío albaranes Redyser"
+
+msgctxt "model:ir.sequence,name:sequence_carrier_api_redyser"
+msgid "Redyser API"
+msgstr "API Redyser"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_carrier_api_redyser"
+msgid "Redyser API"
+msgstr "API Redyser"
+
+msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_offline_form"
+msgid "Carriers API Redyser Offline"
+msgstr "API Redyser Offline"
+
+msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_offline_send"
+msgid "Send Redyser Offline"
+msgstr "Envío Redyser Offline."
+
+msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_zip_form"
+msgid "Redyser Zip"
+msgstr "Código postal Redyser"
+
+msgctxt "model:res.user,name:user_carrier_api_redyser"
+msgid "Cron Carrier API Redyser"
+msgstr "Cron API Redyser"
+
+msgctxt "selection:carrier.api,redyser_send_method:"
+msgid "Email"
+msgstr "Email"
+
+msgctxt "selection:carrier.api,redyser_send_method:"
+msgid "FTP"
+msgstr "FTP"
+
+msgctxt "selection:carrier.api.redyser_offline,state:"
+msgid "Done"
+msgstr "Realizado"
+
+msgctxt "selection:carrier.api.redyser_offline,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "view:carrier.api.redyser.offline.send.start:"
+msgid "Carrier API Redyser Offline"
+msgstr "API Redyser Offline"
+
+msgctxt "view:carrier.api.redyser.offline.send.start:"
+msgid "Note that this operation may take a few minutes."
+msgstr "Tenga en cuenta que esta operación puede tardar unos minutos."
+
+msgctxt "view:carrier.api.redyser.offline.send.start:"
+msgid "Send Redyser Offline."
+msgstr "Envío Redyser Offline."
+
+msgctxt "view:carrier.api.redyser.zip.load.start:"
+msgid "Load Redyser codes"
+msgstr "Añadir códigos Redyser"
+
+msgctxt "view:carrier.api.redyser.zip.load.start:"
+msgid "This process will load all Redyser codes in the database."
+msgstr ""
+"\"Este proceso añadirá los códigos postales de Redyser en la base de datos."
+
+msgctxt "view:carrier.api.redyser.zip:"
+msgid "Redyser Zip"
+msgstr "Código postal Redyser"
+
+msgctxt "view:carrier.api.redyser_offline:"
+msgid "Carrier API Redyser Offline"
+msgstr "API Redyser Offline"
+
+msgctxt "view:carrier.api.redyser_offline:"
+msgid "Carrier API Seur Offline"
+msgstr "API Seur Offline"
+
+msgctxt "view:carrier.api:"
+msgid "Redyser"
+msgstr "Redyser"
+
+msgctxt "wizard_button:carrier.api.redyser.offline.send,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "wizard_button:carrier.api.redyser.offline.send,start,send:"
+msgid "Send"
+msgstr "Enviar"
+
+msgctxt "wizard_button:carrier.api.redyser.zip.load,start,accept:"
+msgid "Accept"
+msgstr "Aceptar"
+
+msgctxt "wizard_button:carrier.api.redyser.zip.load,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- This file is part of the carrier_send_shipments_redyser module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<form string="Redyser Zip">
+    <label name="postal_code"/>
+    <field name="postal_code"/>
+    <label name="country_code"/>
+    <field name="country_code"/>
+    <label name="center_code"/>
+    <field name="center_code"/>
+    <label name="center_name"/>
+    <field name="center_name"/>
+    <label name="service_1030"/>
+    <field name="service_1030"/>
+    <label name="service_saturday"/>
+    <field name="service_saturday"/>
+    <label name="max_pickup_time"/>
+    <field name="max_pickup_time"/>
+</form>
