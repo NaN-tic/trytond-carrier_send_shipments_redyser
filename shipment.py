@@ -82,10 +82,12 @@ class ShipmentOut:
         """
         pool = Pool()
         Sequence = pool.get('ir.sequence')
+
         sequence, = Sequence.search([('code', '=', 'carrier.api.redyser')],
             limit=1)
         counter = Sequence.get_id(sequence.id)
-        barcode = '%s%s%sZ' % (delivery_address.zip, package, counter)
+        barcode = '%s%s%sZ' % (
+            delivery_address.zip.zfill(5), str(package).zfill(3), counter.zfill(12))
         return barcode
 
     @classmethod
