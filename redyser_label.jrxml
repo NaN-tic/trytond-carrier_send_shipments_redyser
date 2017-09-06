@@ -159,12 +159,12 @@
 		<initialValueExpression><![CDATA[$F{customer-lang} != null && $F{customer-lang}.length() == 5 ? new Locale($F{customer-lang}) : ( $F{customer-lang} != null && $F{customer-lang}.length() == 2 ? new Locale($F{customer-lang}) : new Locale('en_US'))]]></initialValueExpression>
 	</variable>
 	<pageHeader>
-		<band height="47">
+		<band height="188">
 			<rectangle>
 				<reportElement positionType="FixRelativeToBottom" x="120" y="0" width="189" height="45" uuid="e51623ca-7efb-4576-ae5f-04e32e6317d8"/>
 			</rectangle>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="2" y="45" width="307" height="1" uuid="cadc68f6-462d-4d78-8679-14c7c0924afa"/>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="47" width="307" height="1" uuid="cadc68f6-462d-4d78-8679-14c7c0924afa"/>
 			</line>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="120" y="5" width="189" height="22" uuid="faf30060-9ae2-4f6d-a349-94f7748da5d8"/>
@@ -188,148 +188,148 @@
 				<reportElement x="0" y="2" width="120" height="25" uuid="cbffc456-43fd-4cf9-8daf-819c960191cd"/>
 				<imageExpression><![CDATA[$P{SOURCES_DIR}+"redyser_logo.png"]]></imageExpression>
 			</image>
-		</band>
-	</pageHeader>
-	<pageFooter>
-		<band height="192">
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="FixRelativeToBottom" x="4" y="68" width="178" height="11" forecolor="#010101" uuid="f5a94f54-e870-40f2-8492-1aeb2b799b65"/>
-				<textElement>
-					<font size="9" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{company-name}]]></textFieldExpression>
-			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="80" width="178" height="31" forecolor="#808080" uuid="f4978ec7-db63-4c34-bb40-fe1350a3576e"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{company-street}+". "+$F{company-zip}+" "+$F{company-city}+" "+$F{company-country}+"\n"+
-"T. "+ $F{company-phone}+" "+$F{company-email}+". "+$F{company-vat_code}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="57" width="307" height="1" uuid="b684983a-7302-4fca-83c4-19fd642ff837"/>
-			</line>
-			<componentElement>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="142" width="309" height="50" uuid="f5431006-bd6b-4245-bd3e-f60a3ef88dff">
-					<printWhenExpression><![CDATA[!$F{redyser_barcode}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="true" barWidth="0" barHeight="2">
-					<jr:codeExpression><![CDATA[$F{redyser_barcode}]]></jr:codeExpression>
-				</jr:barbecue>
-			</componentElement>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="14" width="178" height="11" uuid="47a89a9d-3135-4ac7-90e3-82e9530acbfb"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{full_name-full_name}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="209" y="3" width="101" height="11" uuid="a85065ba-4ade-42ff-9216-d8fed0bf9489"/>
-				<textElement textAlignment="Right">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{package} + '-' + $F{number-packages}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="36" width="178" height="11" uuid="89060d02-b086-4c2a-8ebd-1fc3bbeb16c2"/>
-				<textElement>
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{delivery-postal_code} + ' ' + $F{delivery-city}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="25" width="178" height="11" uuid="451a1fc8-014e-4e0f-a5ce-dab1901d05fc"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{delivery-address}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="136" width="178" height="1" uuid="877eec9e-815c-4002-b354-7269a89cedb7"/>
-			</line>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="120" y="125" width="62" height="11" uuid="bc46a3fe-253f-4221-b4e5-8ed14b23c8e2"/>
+				<reportElement positionType="FixRelativeToBottom" x="120" y="172" width="62" height="11" uuid="bc46a3fe-253f-4221-b4e5-8ed14b23c8e2"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{weight}+" "+$F{weight_uom}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="67" y="125" width="53" height="11" uuid="01a7f6ca-0d30-461d-81dc-b78051dc5626"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="127" width="178" height="31" forecolor="#808080" uuid="f4978ec7-db63-4c34-bb40-fe1350a3576e"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA["PESO: "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company-street}+". "+$F{company-zip}+" "+$F{company-city}+" "+$F{company-country}+"\n"+
+"T. "+ $F{company-phone}+" "+$F{company-email}+"\n"+$F{company-vat_code}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="183" width="178" height="1" uuid="877eec9e-815c-4002-b354-7269a89cedb7"/>
+			</line>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="3" width="178" height="11" uuid="ae09bde4-4a16-41c7-a2e6-d5468b53e2d1"/>
-				<textElement>
-					<font size="9" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Destinatario: "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="186" y="65" width="53" height="11" uuid="10c31849-b70d-4a8c-97c2-54d0b6e0f5d1"/>
-				<textElement>
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Referencia: "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="186" y="78" width="53" height="11" uuid="ff74cbc2-ce4a-4efe-8e01-bf57d6e6455a"/>
-				<textElement>
+				<reportElement positionType="FixRelativeToBottom" x="209" y="49" width="101" height="11" uuid="a85065ba-4ade-42ff-9216-d8fed0bf9489"/>
+				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Albarán: "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{package} + '-' + $F{number-packages}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="239" y="78" width="71" height="11" uuid="82b95bc3-07b2-4cc3-a952-edab2f9a515e"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{shipment-code}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="4" y="47" width="178" height="11" uuid="a53b3752-e7b2-4340-b436-c640bad0ef92"/>
+				<reportElement x="4" y="93" width="178" height="11" uuid="a53b3752-e7b2-4340-b436-c640bad0ef92"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{delivery-mobile} + ' ' + $F{delivery-phone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="58" width="178" height="13" uuid="e1d49468-7f04-4d24-acbf-55d5269b5663"/>
-				<textElement>
-					<font size="9" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Remitente: "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="239" y="65" width="71" height="13" uuid="3d9e94f8-a4e2-42a2-9fca-1affbd751484"/>
-				<textFieldExpression><![CDATA[$F{tracking_refrence}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="186" y="89" width="124" height="11" uuid="38f01f54-42ee-47ab-b2c4-d5e9007fe83a"/>
-				<textElement textAlignment="Right">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["PORTES PAGADOS"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="186" y="100" width="124" height="11" uuid="1c8446d3-449c-4d3e-aae3-bffb87a56505"/>
+				<reportElement positionType="FixRelativeToBottom" x="186" y="140" width="124" height="11" uuid="1c8446d3-449c-4d3e-aae3-bffb87a56505"/>
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{carrier_cashondelivery} ? "REEMBOLSO: " + $F{carrier_cashondelivery_total} : ""]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="111" width="178" height="11" uuid="145ee302-06a2-4fdb-bd75-02df36d7a3b2"/>
+				<reportElement positionType="FixRelativeToBottom" x="239" y="118" width="71" height="11" uuid="82b95bc3-07b2-4cc3-a952-edab2f9a515e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipment-code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="82" width="178" height="11" uuid="89060d02-b086-4c2a-8ebd-1fc3bbeb16c2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{delivery-postal_code} + ' ' + $F{delivery-city}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="67" y="172" width="53" height="11" uuid="01a7f6ca-0d30-461d-81dc-b78051dc5626"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PESO: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="71" width="178" height="11" uuid="451a1fc8-014e-4e0f-a5ce-dab1901d05fc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{delivery-address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="186" y="105" width="53" height="11" uuid="10c31849-b70d-4a8c-97c2-54d0b6e0f5d1"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Referencia: "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="103" width="307" height="1" uuid="b684983a-7302-4fca-83c4-19fd642ff837"/>
+			</line>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="60" width="178" height="11" uuid="47a89a9d-3135-4ac7-90e3-82e9530acbfb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{full_name-full_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="186" y="129" width="124" height="11" uuid="38f01f54-42ee-47ab-b2c4-d5e9007fe83a"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PORTES PAGADOS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="49" width="178" height="11" uuid="ae09bde4-4a16-41c7-a2e6-d5468b53e2d1"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Destinatario: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="158" width="178" height="11" uuid="145ee302-06a2-4fdb-bd75-02df36d7a3b2"/>
 				<textElement textAlignment="Left">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{carrier_notes} ? $F{carrier_notes} : ""]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="105" width="178" height="13" uuid="e1d49468-7f04-4d24-acbf-55d5269b5663"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Remitente: "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="FixRelativeToBottom" x="4" y="115" width="178" height="11" forecolor="#010101" uuid="f5a94f54-e870-40f2-8492-1aeb2b799b65"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company-name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="186" y="118" width="53" height="11" uuid="ff74cbc2-ce4a-4efe-8e01-bf57d6e6455a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Albarán: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="105" width="71" height="13" uuid="3d9e94f8-a4e2-42a2-9fca-1affbd751484"/>
+				<textFieldExpression><![CDATA[$F{tracking_refrence}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="59">
+			<componentElement>
+				<reportElement positionType="FixRelativeToBottom" x="-2" y="6" width="309" height="50" uuid="f5431006-bd6b-4245-bd3e-f60a3ef88dff">
+					<printWhenExpression><![CDATA[!$F{redyser_barcode}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="true" barWidth="0" barHeight="2">
+					<jr:codeExpression><![CDATA[$F{redyser_barcode}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
 		</band>
 	</pageFooter>
 </jasperReport>
