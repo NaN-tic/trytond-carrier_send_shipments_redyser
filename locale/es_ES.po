@@ -200,7 +200,7 @@ msgstr "API Redyser Offline"
 
 msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_offline_send"
 msgid "Send Redyser Offline"
-msgstr "Envío Redyser Offline."
+msgstr "Envío Redyser Offline"
 
 msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_zip_form"
 msgid "Redyser Zip"
