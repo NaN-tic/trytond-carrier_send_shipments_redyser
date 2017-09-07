@@ -38,7 +38,11 @@ class CarrierApi:
         'required': Eval('method') == 'redyser',
         'invisible': Eval('method') != 'redyser',
         }, depends=['method'],
-        help='Redyser TO email')
+        help='Redyser email, separated by comma')
+    redyser_email_cc = fields.Char('Redyser CC Email', states={
+            'invisible': Eval('method') != 'redyser',
+        }, depends=['method'],
+        help='Redyser CC email, separated by comma')
     redyser_filename = fields.Char('Redyser Filename', states={
             'required': Eval('method') == 'redyser',
             'invisible': Eval('method') != 'redyser'
@@ -207,14 +211,18 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
             cls.raise_user_error('no_smtp_redyser')
 
         from_ = server.smtp_email
-        recipients = [api.redyser_email]
+        recipients = api.redyser_email.split(',')
+        if api.redyser_email_cc:
+            recipients += api.redyser_email_cc.split(',')
         subject = '%s: %s - %s' % (
             api.company.party.name, api.redyser_client_code, filename)
 
         msg = MIMEMultipart()
         msg['Subject'] = Header(subject, 'utf-8')
         msg['From'] = from_
-        msg['To'] = ', '.join(recipients)
+        msg['To'] = api.redyser_email
+        if api.redyser_email_cc:
+            msg['Cc'] = api.redyser_email_cc
         msg['Reply-to'] = server.smtp_email
         # msg['Date']     = Utils.formatdate(localtime = 1)
         msg['Message-ID'] = Utils.make_msgid()

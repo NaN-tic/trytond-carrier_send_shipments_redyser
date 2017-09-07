@@ -13,6 +13,8 @@ copyright notices and license terms. -->
             <field name="redyser_csv_header"/>
             <label name="redyser_email"/>
             <field name="redyser_email"/>
+            <label name="redyser_email_cc"/>
+            <field name="redyser_email_cc"/>
             <label name="redyser_filename"/>
             <field name="redyser_filename"/>
         </page>

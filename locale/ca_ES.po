@@ -14,6 +14,10 @@ msgctxt "field:carrier.api,redyser_email:"
 msgid "Redyser Email"
 msgstr "Correu Redyser"
 
+msgctxt "field:carrier.api,redyser_email_cc:"
+msgid "Redyser CC Email"
+msgstr "Correu CC Redyser"
+
 msgctxt "field:carrier.api,redyser_filename:"
 msgid "Redyser Filename"
 msgstr "Nom fitxer Redyser"
@@ -139,8 +143,12 @@ msgid "Package"
 msgstr "Paquet"
 
 msgctxt "help:carrier.api,redyser_email:"
-msgid "Redyser TO email"
-msgstr "Redyser TO correu"
+msgid "Redyser email, separated by comma"
+msgstr "Correu Redyser, separat per coma"
+
+msgctxt "help:carrier.api,redyser_email_cc:"
+msgid "Redyser CC email, separated by comma"
+msgstr "Correu CC Redyser, separat per coma"
 
 msgctxt "help:carrier.api,redyser_filename:"
 msgid "Prefix Redyser Filename"
