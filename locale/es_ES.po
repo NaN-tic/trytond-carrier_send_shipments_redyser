@@ -188,11 +188,11 @@ msgstr "Etiqueta Redyser"
 
 msgctxt "model:ir.action,name:wizard_carrier_api_redyser_offline_send"
 msgid "Send redyser Offline"
-msgstr "Envío Redyser Offline"
+msgstr "Enviar Redyser Offline"
 
 msgctxt "model:ir.cron,name:cron_carrier_api_send_redyser_offline"
 msgid "Send Redyser Shipments"
-msgstr "Envío albaranes Redyser"
+msgstr "Enviar albaranes Redyser"
 
 msgctxt "model:ir.sequence,name:sequence_carrier_api_redyser"
 msgid "Redyser API"
@@ -208,7 +208,7 @@ msgstr "API Redyser Offline"
 
 msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_offline_send"
 msgid "Send Redyser Offline"
-msgstr "Envío Redyser Offline"
+msgstr "Enviar Redyser Offline"
 
 msgctxt "model:ir.ui.menu,name:menu_carrier_api_redyser_zip_form"
 msgid "Redyser Zip"
