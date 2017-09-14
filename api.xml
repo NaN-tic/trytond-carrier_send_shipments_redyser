@@ -139,6 +139,10 @@ copyright notices and license terms. -->
             <field name="user" ref="user_carrier_api_redyser"/>
             <field name="group" ref="carrier_api.group_carrier_api_admin"/>
         </record>
+        <record model="res.user-res.group" id="user_carrier_api_redyser_stock_group">
+            <field name="user" ref="user_carrier_api_redyser"/>
+            <field name="group" ref="stock.group_stock"/>
+        </record>
 
         <record model="ir.cron" id="cron_carrier_api_send_redyser_offline">
             <field name="name">Send Redyser Shipments</field>
