@@ -339,7 +339,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['weight'] = shipment.carrier_weight
         row['total_value'] = shipment.total_amount_func
         row['inssurance_value'] = None
-        row['sender_phone'] = unaccent(company.party.email)
+        row['sender_phone'] = unaccent(company.party.phone)
         row['client_reference'] = None
         row['packages_ids'] = None
         row['point_id'] = None
