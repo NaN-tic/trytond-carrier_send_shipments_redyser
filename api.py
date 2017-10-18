@@ -10,7 +10,7 @@ from trytond.pool import PoolMeta, Pool
 from trytond.pyson import Eval, Not, Equal
 from trytond.transaction import Transaction
 from trytond.wizard import Wizard, StateView, StateTransition, Button
-from trytond.modules.carrier_send_shipments.tools import unaccent
+from trytond.modules.carrier_send_shipments.tools import unaccent, unspaces
 from collections import OrderedDict
 from urllib2 import urlopen, URLError
 import csv
@@ -324,8 +324,8 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['packages'] = shipment.number_packages
         row['cashondelivery'] = (shipment.carrier_cashondelivery_total
             if shipment.carrier_cashondelivery else 0)
-        row['receiver_phone1'] = unaccent(delivery_address.phone
-            or customer.phone)
+        row['receiver_phone1'] = unspaces(unaccent(delivery_address.phone
+            or customer.phone))
         row['receiver_phone2'] = None
         row['client_code'] = api.redyser_client_code
         row['service_code'] = service.code
@@ -339,7 +339,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['weight'] = shipment.carrier_weight
         row['total_value'] = shipment.total_amount_func
         row['inssurance_value'] = None
-        row['sender_phone'] = unaccent(company.party.phone)
+        row['sender_phone'] = unspaces(unaccent(company.party.phone))
         row['client_reference'] = None
         row['packages_ids'] = None
         row['point_id'] = None
