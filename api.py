@@ -311,7 +311,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['redyser_reference'] = shipment.carrier_tracking_ref
         row['sender_name'] = unaccent(company.party.name)
         row['sender_address'] = unaccent(company_address.street)
-        row['sender_postalcode'] = company_address.zip
+        row['sender_postalcode'] = unaccent(company_address.zip)
         row['sender_city'] = unaccent(company_address.city)
         row['latitude_sender'] = None
         row['longitude_sender'] = None
@@ -324,20 +324,22 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['packages'] = shipment.number_packages
         row['cashondelivery'] = (shipment.carrier_cashondelivery_total
             if shipment.carrier_cashondelivery else 0)
-        row['receiver_phone1'] = delivery_address.phone or customer.phone
+        row['receiver_phone1'] = unaccent(delivery_address.phone
+            or customer.phone)
         row['receiver_phone2'] = None
         row['client_code'] = api.redyser_client_code
         row['service_code'] = service.code
         row['notes'] = None
-        row['receiver_email'] = delivery_address.email or customer.email
-        row['sender_email'] = company.party.email
+        row['receiver_email'] = unaccent(delivery_address.email
+            or customer.email)
+        row['sender_email'] = unaccent(company.party.email)
         row['sender_country'] = company_address.country.code
         row['receiver_country'] = delivery_address.country.code
         row['order_type'] = 'E' # recogida o entrega ([R|E])
         row['weight'] = shipment.carrier_weight
         row['total_value'] = shipment.total_amount_func
         row['inssurance_value'] = None
-        row['sender_phone'] = company.party.email
+        row['sender_phone'] = unaccent(company.party.email)
         row['client_reference'] = None
         row['packages_ids'] = None
         row['point_id'] = None
