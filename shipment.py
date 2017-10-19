@@ -18,7 +18,8 @@ class ShipmentOut:
         'get_redyser_channeling')
     redyser_barcode = fields.Function(fields.Char('Redyser Barcode'),
         'get_redyser_barcode')
-    redyser_current_package = fields.Function(fields.Char('Package'), 'get_redyser_package')
+    redyser_current_package = fields.Function(fields.Char('Package'),
+        'get_redyser_package')
 
     def get_redyser_channeling(self, name=None):
         RedyserZip = Pool().get('carrier.api.redyser.zip')
@@ -41,19 +42,11 @@ class ShipmentOut:
     def get_redyser_barcode(self, name=None):
         package = Transaction().context.get('package')
         if package:
-            return self._get_barcode(self.delivery_address, package)
-        return self._get_barcode(self.delivery_address, 1)
+            return self._get_barcode(self, package)
+        return self._get_barcode(self, 1)
 
     @classmethod
     def create_label(cls, shipment, api, package=1):
-        number_packages = shipment.number_packages
-
-        shipment.redyser_current_package = ('%d - %d') % (package, number_packages)
-        shipment.redyser_barcode = cls._get_barcode(shipment.delivery_address,
-            package)
-        # TODO save??? is function fields!!!!
-        shipment.save()
-
         values = RedyserLabel().execute([shipment.id], {'model': cls.__name__})
         file = cls._generate_file(values)
         return file
@@ -68,7 +61,7 @@ class ShipmentOut:
         return temp.name
 
     @staticmethod
-    def _get_barcode(delivery_address, package):
+    def _get_barcode(shipment, package):
         """
         CCCCCBBB000000000000Z
 
@@ -80,14 +73,16 @@ class ShipmentOut:
         Z una Z como constante
 
         """
-        pool = Pool()
-        Sequence = pool.get('ir.sequence')
+        Sequence = Pool().get('ir.sequence')
 
         sequence, = Sequence.search([('code', '=', 'carrier.api.redyser')],
             limit=1)
-        counter = Sequence.get_id(sequence.id)
-        barcode = '%s%s%sZ' % (
-            delivery_address.zip.zfill(5), str(package).zfill(3), counter.zfill(12))
+        counter = (shipment.carrier_tracking_ref if shipment.carrier_tracking_ref
+            else Sequence.get_id(sequence.id))
+        zip = (shipment.delivery_address.zip if shipment.delivery_address.zip
+            else '0')
+        barcode = '%s%s%sZ' % (zip.zfill(5), str(package).zfill(3),
+            counter.zfill(12))
         return barcode
 
     @classmethod
@@ -95,6 +90,7 @@ class ShipmentOut:
         pool = Pool()
         OfflineRedyser = pool.get('carrier.api.redyser_offline')
         Sequence = pool.get('ir.sequence')
+
         sequence, = Sequence.search([('code', '=', 'carrier.api.redyser')],
             limit=1)
 
@@ -102,11 +98,16 @@ class ShipmentOut:
         labels = []
         errors = []
 
+        to_write = []
+        for shipment in shipments:
+            to_write.extend(([shipment], {
+                'carrier_tracking_ref': Sequence.get_id(sequence.id),
+                }))
+        if to_write:
+            cls.write(*to_write)
+
         to_create = []
         for shipment in shipments:
-            cls.write([shipment], {
-                'carrier_tracking_ref': Sequence.get_id(sequence.id),
-                })
             for package in xrange(1, shipment.number_packages + 1):
                 with Transaction().set_context(package=package):
                     labels.append(cls.create_label(shipment, api, package))
@@ -129,7 +130,8 @@ class ShipmentOut:
 
         for shipment in shipments:
             for package in xrange(1, shipment.number_packages + 1):
-                labels.append(cls.create_label(shipment, api, package))
+                with Transaction().set_context(package=package):
+                    labels.append(cls.create_label(shipment, api, package))
 
         return labels
 

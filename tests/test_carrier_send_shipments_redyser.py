@@ -16,28 +16,48 @@ class CarrierSendShipmentsRedyserTestCase(ModuleTestCase):
 
     def setUp(self):
         super(CarrierSendShipmentsRedyserTestCase, self).setUp()
+        self.company = POOL.get('company.company')
+        self.user = POOL.get('res.user')
         self.party = POOL.get('party.party')
         self.address = POOL.get('party.address')
         self.shipment_out = POOL.get('stock.shipment.out')
+        self.location = POOL.get('stock.location')
 
     def test0010redyser_barcode(self):
         'Redyser Barcode'
         with Transaction().start(DB_NAME, USER,
                 context=CONTEXT) as transaction:
-            party1, = self.party.create([{
-                        'name': 'Party 1',
-                        }])
+            company, = self.company.search([
+                    ('rec_name', '=', 'Dunder Mifflin'),
+                    ])
+            self.user.write([self.user(USER)], {
+                'main_company': company.id,
+                'company': company.id,
+                })
+            warehouse, = self.location.search([('type', '=', 'warehouse')])
+
+            party1 = company.party
             address1, = self.address.create([{
                         'zip': '08720',
                         'party': party1.id,
                         }])
+            shipment, = self.shipment_out.create([{
+                        'customer': party1.id,
+                        'delivery_address': address1.id,
+                        'company': company.id,
+                        'warehouse': warehouse.id,
+                        }])
             barcode = self.shipment_out._get_barcode(
-                delivery_address=address1, package=1)
+                shipment=shipment, package=1)
             self.assertEqual(barcode, u'08720001000000000001Z')
             transaction.cursor.commit()
 
 def suite():
     suite = trytond.tests.test_tryton.suite()
+    from trytond.modules.company.tests import test_company
+    for test in test_company.suite():
+        if test not in suite and not isinstance(test, doctest.DocTestCase):
+            suite.addTest(test)
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
         CarrierSendShipmentsRedyserTestCase))
     suite.addTests(doctest.DocFileSuite('scenario_carrier_send_shipments_redyser.rst',
