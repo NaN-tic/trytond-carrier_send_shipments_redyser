@@ -102,6 +102,10 @@ class ShipmentOut:
         for shipment in shipments:
             to_write.extend(([shipment], {
                 'carrier_tracking_ref': Sequence.get_id(sequence.id),
+                'carrier_delivery': True,
+                'carrier_printed': True,
+                'carrier_send_date': cls.get_carrier_date(),
+                'carrier_send_employee': cls.get_carrier_employee(),
                 }))
         if to_write:
             cls.write(*to_write)
