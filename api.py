@@ -287,6 +287,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         pool = Pool()
         Sequence = pool.get('ir.sequence')
         CarrierApi = pool.get('carrier.api')
+        ShipmentOut = pool.get('stock.shipment.out')
 
         sequence, = Sequence.search([('code', '=', 'carrier.api.redyser')],
             limit=1)
@@ -307,6 +308,10 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         company = shipment.company
         company_address = company.party.addresses[0]
 
+        cashondelivery = 0
+        if shipment.carrier_cashondelivery:
+            cashondelivery = ShipmentOut.get_price_ondelivery_shipment_out(shipment)
+
         row['shipment'] = code
         row['redyser_reference'] = shipment.carrier_tracking_ref
         row['sender_name'] = unaccent(company.party.name)
@@ -322,8 +327,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['latitude_receiver'] = None
         row['longitude_receiver'] = None
         row['packages'] = shipment.number_packages
-        row['cashondelivery'] = (shipment.carrier_cashondelivery_total
-            if shipment.carrier_cashondelivery else 0)
+        row['cashondelivery'] = cashondelivery
         row['receiver_phone1'] = unspaces(unaccent(delivery_address.phone
             or customer.phone))
         row['receiver_phone2'] = None
