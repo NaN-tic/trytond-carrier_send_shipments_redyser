@@ -116,7 +116,7 @@ msgstr "Nom"
 
 msgctxt "field:carrier.api.redyser_offline,shipment:"
 msgid "Shipment"
-msgstr "Albarans"
+msgstr "Albarà"
 
 msgctxt "field:carrier.api.redyser_offline,state:"
 msgid "State"
