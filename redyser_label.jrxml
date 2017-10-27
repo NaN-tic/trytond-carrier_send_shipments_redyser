@@ -145,8 +145,8 @@
 	<field name="carrier_cashondelivery" class="java.lang.Boolean">
 		<fieldDescription><![CDATA[/data/record/carrier_cashondelivery-carrier_cashondelivery]]></fieldDescription>
 	</field>
-	<field name="carrier_cashondelivery_total" class="java.lang.Number">
-		<fieldDescription><![CDATA[/data/record/carrier_cashondelivery_total-carrier_cashondelivery_total]]></fieldDescription>
+	<field name="carrier_cashondelivery_price" class="java.lang.Number">
+		<fieldDescription><![CDATA[/data/record/carrier_cashondelivery_price-carrier_cashondelivery_price]]></fieldDescription>
 	</field>
 	<field name="carrier_notes" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/carrier_notes-carrier_notes]]></fieldDescription>
@@ -225,7 +225,7 @@
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{carrier_cashondelivery} ? "REEMBOLSO: " + $F{carrier_cashondelivery_total} : ""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{carrier_cashondelivery} ? "REEMBOLSO: " + $F{carrier_cashondelivery_price} : ""]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="239" y="118" width="71" height="11" uuid="82b95bc3-07b2-4cc3-a952-edab2f9a515e"/>
