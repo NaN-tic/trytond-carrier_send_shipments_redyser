@@ -101,6 +101,45 @@ class CarrierApiRedyserZip(ModelSQL, ModelView):
     def get_rec_name(self, name=None):
         return '%s-%s' % (self.postal_code, self.center_code)
 
+    @classmethod
+    def load_redyser_zip(cls):
+        '''Upgrade Redyser Zip'''
+        zips = cls.search([])
+        if zips:
+            cls.delete(zips)
+
+        try:
+            response = urlopen(REDYSER_LOAD_ZIP)
+        except URLError:
+            logger.error('Load Zip CSV')
+            return
+
+        if not response:
+            return
+
+        csv_zips = response.read().decode('iso-8859-1').encode('utf8')
+        response.close()
+
+        to_create = []
+        for row in csv.reader(csv_zips.splitlines(), delimiter='\t'):
+            if not row:
+                continue
+
+            new_line = {}
+            new_line['postal_code'] = row[0]
+            new_line['country_code'] = row[1]
+            new_line['center_code'] = row[2]
+            new_line['center_name'] = row[3]
+            new_line['service_1030'] = True if row[4] == 'S' else False
+            new_line['service_saturday'] = True if row[5] == 'S' else False
+            if row[6]:
+                new_line['max_pickup_time'] = datetime.datetime.strptime(
+                    row[6], '%H:%M:%S').time()
+            to_create.append(new_line)
+
+        if to_create:
+            cls.create(to_create)
+
 
 class CarrierApiRedyserOffline(ModelSQL, ModelView):
     'Carrier API Redyser Offline'
@@ -390,41 +429,5 @@ class LoadCarrierApiRedyserZip(Wizard):
 
     def transition_accept(self):
         RedyserZip = Pool().get('carrier.api.redyser.zip')
-
-        zips = RedyserZip.search([])
-        if zips:
-            RedyserZip.delete(zips)
-
-        try:
-            response = urlopen(REDYSER_LOAD_ZIP)
-        except URLError:
-            logger.error('Load Zip CSV')
-            return
-
-        if not response:
-            return
-
-        csv_zips = response.read().decode('iso-8859-1').encode('utf8')
-        response.close()
-
-        to_create = []
-        for row in csv.reader(csv_zips.splitlines(), delimiter='\t'):
-            if not row:
-                continue
-
-            new_line = {}
-            new_line['postal_code'] = row[0]
-            new_line['country_code'] = row[1]
-            new_line['center_code'] = row[2]
-            new_line['center_name'] = row[3]
-            new_line['service_1030'] = True if row[4] == 'S' else False
-            new_line['service_saturday'] = True if row[5] == 'S' else False
-            if row[6]:
-                new_line['max_pickup_time'] = datetime.datetime.strptime(
-                    row[6], '%H:%M:%S').time()
-            to_create.append(new_line)
-
-        if to_create:
-            RedyserZip.create(to_create)
-
+        RedyserZip.load_redyser_zip()
         return 'end'

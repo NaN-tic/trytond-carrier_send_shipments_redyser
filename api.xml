@@ -101,7 +101,6 @@ copyright notices and license terms. -->
             <field name="name">Load Redyser Zip</field>
             <field name="wiz_name">carrier.api.redyser.zip.load</field>
         </record>
-
         <record model="ir.module.config_wizard.item" id="config_wizard_redyser_zip_load">
             <field name="action" ref="redyser_zip_load_wizard"/>
             <field name="sequence" eval="50"/>
@@ -155,6 +154,20 @@ copyright notices and license terms. -->
             <field name="repeat_missed" eval="False"/>
             <field name="model">carrier.api.redyser_offline</field>
             <field name="function">send_redyser_offline</field>
+        </record>
+
+        <!-- cron to upgrade redyser zip-->
+        <record model="ir.cron" id="cron_carrier_api_send_redyser_zip">
+            <field name="name">Upgrade Redyser Zip</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="user_carrier_api_redyser"/>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="number_calls">-1</field>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">carrier.api.redyser.zip</field>
+            <field name="function">load_redyser_zip</field>
         </record>
     </data>
 </tryton>
