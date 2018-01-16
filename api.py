@@ -199,6 +199,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
 
         redyser_shipments = cls.search([
             ('api', '=', api),
+            ('shipment.state', 'in', ['packed', 'done']),
             ('state', '=', 'draft'),
             ])
         if not redyser_shipments:
