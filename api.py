@@ -216,8 +216,9 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
                 waddress = shipment.warehouse.address
             else:
                 waddress = api.company.party.addresses[0]
-            service = shipment.carrier_service or shipment.carrier.service \
-                or default_service
+            service = (shipment.carrier_service
+                or (shipment.carrier and shipment.carrier.service)
+                or default_service)
             csv_row = cls.create_csv_row(shipment, service, waddress, api)
             shipments_data.append(csv_row)
 
