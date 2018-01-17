@@ -118,6 +118,10 @@ msgctxt "field:carrier.api.redyser_offline,shipment:"
 msgid "Shipment"
 msgstr "Albarán"
 
+msgctxt "field:carrier.api.redyser_offline,shipment_state:"
+msgid "Shipment State"
+msgstr "Estado albarán"
+
 msgctxt "field:carrier.api.redyser_offline,state:"
 msgid "State"
 msgstr "Estado"
@@ -225,6 +229,34 @@ msgstr "Email"
 msgctxt "selection:carrier.api,redyser_send_method:"
 msgid "FTP"
 msgstr "FTP"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Assigned"
+msgstr "Reservado"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Canceled"
+msgstr "Cancelado"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Done"
+msgstr "Realizado"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Packed"
+msgstr "Empaquetado"
+
+msgctxt "selection:carrier.api.redyser_offline,shipment_state:"
+msgid "Waiting"
+msgstr "En espera"
 
 msgctxt "selection:carrier.api.redyser_offline,state:"
 msgid "Done"

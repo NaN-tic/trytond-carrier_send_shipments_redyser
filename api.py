@@ -157,6 +157,16 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         states={
             'readonly': Eval('state') != 'draft',
         }, depends=['state'])
+    shipment_state = fields.Function(fields.Selection([
+        (None, ''),
+        ('draft', 'Draft'),
+        ('done', 'Done'),
+        ('cancel', 'Canceled'),
+        ('assigned', 'Assigned'),
+        ('packed', 'Packed'),
+        ('waiting', 'Waiting'),
+        ], 'Shipment State'),
+        'get_shipment_state', searcher='search_shipment_state')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
@@ -169,6 +179,18 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+    @classmethod
+    def get_shipment_state(cls, sseurs, names):
+        result = {n: {s.id: None for s in sseurs} for n in names}
+        for name in names:
+            for sseur in sseurs:
+                result[name][sseur.id] = sseur.shipment.state
+        return result
+
+    @classmethod
+    def search_shipment_state(cls, name, clause):
+        return [('shipment.state',) + tuple(clause[1:])]
 
     @staticmethod
     def get_csv_headers():

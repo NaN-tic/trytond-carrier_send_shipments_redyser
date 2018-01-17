@@ -5,6 +5,7 @@ copyright notices and license terms. -->
 <tree string="Carrier API Redyser Offline">
     <field name="api"/>
     <field name="shipment"/>
+    <field name="shipment_state"/>
     <field name="state"/>
     <field name="company"/>
 </tree>

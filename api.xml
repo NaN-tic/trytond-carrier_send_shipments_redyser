@@ -52,6 +52,7 @@ copyright notices and license terms. -->
             <field name="type">tree</field>
             <field name="name">carrier_api_redyser_offline_tree</field>
         </record>
+
         <record model="ir.action.act_window" id="act_carrier_api_redyser_offline_form">
             <field name="name">Carriers API Redyser Offline</field>
             <field name="res_model">carrier.api.redyser_offline</field>
@@ -66,6 +67,23 @@ copyright notices and license terms. -->
             <field name="view" ref="carrier_api_redyser_offline_form"/>
             <field name="act_window" ref="act_carrier_api_redyser_offline_form"/>
         </record>
+        <record model="ir.action.act_window.domain" id="act_carrier_api_redyser_offline_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain"
+                eval="[('state', '=', 'draft')]"
+                pyson="1"/>
+            <field name="act_window" ref="act_carrier_api_redyser_offline_form"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_carrier_api_redyser_offline_domain_done">
+            <field name="name">Done</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain"
+                eval="[('state', '=', 'done')]"
+                pyson="1"/>
+            <field name="act_window" ref="act_carrier_api_redyser_offline_form"/>
+        </record>
+
         <menuitem parent="carrier_api.menu_carrier_api_form"
             action="act_carrier_api_redyser_offline_form"
             id="menu_carrier_api_redyser_offline_form" sequence="10"/>
