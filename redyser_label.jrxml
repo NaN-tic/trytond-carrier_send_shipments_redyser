@@ -91,6 +91,9 @@
 	<field name="customer-comment_shipment" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/customer-customer/comment_shipment-comment_shipment]]></fieldDescription>
 	</field>
+	<field name="delivery_address-name" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/delivery_address-delivery_address/name-name]]></fieldDescription>
+	</field>
 	<field name="delivery_address-comment_shipment" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/delivery_address-delivery_address/comment_shipment-comment_shipment]]></fieldDescription>
 	</field>
@@ -270,7 +273,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{full_name-full_name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{delivery_address-name} ? $F{delivery_address-name} : $F{full_name-full_name}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="186" y="129" width="124" height="11" uuid="38f01f54-42ee-47ab-b2c4-d5e9007fe83a"/>

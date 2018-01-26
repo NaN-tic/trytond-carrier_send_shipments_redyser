@@ -369,6 +369,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         delivery_address = shipment.delivery_address
         company = shipment.company
         company_address = company.party.addresses[0]
+        receiver = delivery_address.name or customer.name
 
         row['shipment'] = code
         row['redyser_reference'] = shipment.carrier_tracking_ref
@@ -378,7 +379,7 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
         row['sender_city'] = unaccent(company_address.city)
         row['latitude_sender'] = None
         row['longitude_sender'] = None
-        row['receiver'] = unaccent(customer.name)
+        row['receiver'] = unaccent(receiver)
         row['receiver_address'] = unaccent(delivery_address.street)
         row['receiver_postalcode'] = unaccent(delivery_address.zip)
         row['receiver_city'] = unaccent(delivery_address.city)
