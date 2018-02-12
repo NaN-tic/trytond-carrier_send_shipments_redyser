@@ -355,8 +355,9 @@ class CarrierApiRedyserOffline(ModelSQL, ModelView):
             limit=1)
 
         default_service = CarrierApi.get_default_carrier_service(api)
-        service = shipment.carrier_service or shipment.carrier.service \
-            or default_service
+        service = (shipment.carrier_service or
+            (shipment.carrier and shipment.carrier.service)
+            or default_service)
 
         if api.reference_origin and hasattr(shipment, 'origin'):
             code = shipment.origin and shipment.origin.rec_name or shipment.code
