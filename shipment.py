@@ -31,7 +31,7 @@ class ShipmentOut:
         if not channeling:
             return
         return ('%s %s') % (
-            channeling[0].center_code, channeling[0].center_name)
+            channeling[0].mnemonic, channeling[0].center_name)
 
     def get_redyser_package(self, name=None):
         package = Transaction().context.get('package')

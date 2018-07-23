@@ -24,7 +24,7 @@ __all__ = ['CarrierApi', 'CarrierApiRedyserZip', 'CarrierApiRedyserOffline',
     'CarrierApiRedyserOfflineSendStart', 'CarrierApiRedyserOfflineSend',
     'LoadCarrierApiRedyserZipStart', 'LoadCarrierApiRedyserZip']
 
-REDYSER_LOAD_ZIP = 'http://webservices.redyser.com/services/downloads/canalizaciones_int.csv'
+REDYSER_LOAD_ZIP = 'https://webservices.redyser.com/services/downloads/canalizaciones_gls.csv'
 
 
 class CarrierApi:
@@ -79,8 +79,9 @@ class CarrierApi:
 
     @staticmethod
     def _get_keys():
-        return ['postal_code', 'country_code', 'center_code', 'center_name',
-            'service_1030', 'service_saturday', 'max_pickup_time']
+        return ['country_code', 'postal_code', 'center_name', 'mnemonic',
+            'service_1030', 'today_pickup', 'max_pickup_time',
+            'service_saturday']
 
     @classmethod
     def test_redyser(cls, api):
@@ -92,14 +93,15 @@ class CarrierApiRedyserZip(ModelSQL, ModelView):
     __name__ = 'carrier.api.redyser.zip'
     postal_code = fields.Char('Postal Code', required=True, select=True)
     country_code = fields.Char('Country code')
-    center_code = fields.Char('Center code')
     center_name = fields.Char('Center name')
+    mnemonic = fields.Char('Mnemonic')
     service_1030 = fields.Boolean('Delivery 10:30')
+    today_pickup = fields.Boolean('Today Pickup')
     service_saturday = fields.Boolean('Delivery Saturdays')
     max_pickup_time = fields.Time('Maximum pickup time')
 
     def get_rec_name(self, name=None):
-        return '%s-%s' % (self.postal_code, self.center_code)
+        return '%s-%s' % (self.postal_code, self.center_name)
 
     @classmethod
     def load_redyser_zip(cls):
@@ -126,15 +128,16 @@ class CarrierApiRedyserZip(ModelSQL, ModelView):
                 continue
 
             new_line = {}
-            new_line['postal_code'] = row[0]
-            new_line['country_code'] = row[1]
-            new_line['center_code'] = row[2]
-            new_line['center_name'] = row[3]
+            new_line['country_code'] = row[0]
+            new_line['postal_code'] = row[1]
+            new_line['center_name'] = row[2]
+            new_line['mnemonic'] = row[3]
             new_line['service_1030'] = True if row[4] == 'S' else False
-            new_line['service_saturday'] = True if row[5] == 'S' else False
+            new_line['today_pickup'] = True if row[5] == 'S' else False
             if row[6]:
                 new_line['max_pickup_time'] = datetime.datetime.strptime(
-                    row[6], '%H:%M:%S').time()
+                    row[6], '%H:%M').time()
+            new_line['service_saturday'] = True if row[7] == 'S' else False
             to_create.append(new_line)
 
         if to_create:

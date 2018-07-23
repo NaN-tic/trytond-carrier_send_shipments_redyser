@@ -170,12 +170,19 @@
 				<reportElement positionType="FixRelativeToBottom" x="2" y="47" width="307" height="1" uuid="cadc68f6-462d-4d78-8679-14c7c0924afa"/>
 			</line>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="120" y="5" width="189" height="22" uuid="faf30060-9ae2-4f6d-a349-94f7748da5d8"/>
+				<reportElement positionType="FixRelativeToBottom" x="120" y="5" width="50" height="30" uuid="faf30060-9ae2-4f6d-a349-94f7748da5d8"/>
 				<textElement>
-					<font size="10"/>
+					<font size="20"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{channeling}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{channeling}.split()[0]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="170" y="5" width="120" height="22" uuid="a56a2ec5-8eb4-40cb-9f89-07acff439bd8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{channeling}.split(' ',2)[1]]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="120" y="27" width="189" height="18" uuid="d50ea5ee-9f6e-451c-97bf-4cb64db00c03"/>
@@ -183,7 +190,7 @@
 				<textFieldExpression><![CDATA[$F{delivery-city}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="21" y="25" width="74" height="20" uuid="5555b137-2743-4b37-b250-51f4df356cf7"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="25" width="120" height="20" uuid="5555b137-2743-4b37-b250-51f4df356cf7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{carrier-service}]]></textFieldExpression>
 			</textField>
@@ -228,7 +235,7 @@
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{carrier_cashondelivery} ? "REEMBOLSO: " + $F{carrier_cashondelivery_price} : ""]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Reembolso: " + ($F{carrier_cashondelivery} ? "SI" : "NO")]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="239" y="118" width="71" height="11" uuid="82b95bc3-07b2-4cc3-a952-edab2f9a515e"/>
@@ -324,12 +331,12 @@
 		</band>
 	</pageHeader>
 	<pageFooter>
-		<band height="59">
+		<band height="75">
 			<componentElement>
-				<reportElement positionType="FixRelativeToBottom" x="-2" y="6" width="309" height="50" uuid="f5431006-bd6b-4245-bd3e-f60a3ef88dff">
+				<reportElement positionType="FixRelativeToBottom" x="-2" y="6" width="205" height="69" uuid="f5431006-bd6b-4245-bd3e-f60a3ef88dff">
 					<printWhenExpression><![CDATA[!$F{redyser_barcode}.isEmpty()]]></printWhenExpression>
 				</reportElement>
-				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="true" barWidth="0" barHeight="2">
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="true" barWidth="0" barHeight="69">
 					<jr:codeExpression><![CDATA[$F{redyser_barcode}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>

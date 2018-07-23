@@ -5,9 +5,10 @@ copyright notices and license terms. -->
 <tree string="Redyser Zip">
     <field name="postal_code"/>
     <field name="country_code"/>
-    <field name="center_code"/>
     <field name="center_name"/>
+    <field name="mnemonic"/>
     <field name="service_1030"/>
+    <field name="today_pickup"/>
     <field name="service_saturday"/>
     <field name="max_pickup_time"/>
 </tree>

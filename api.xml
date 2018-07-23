@@ -123,6 +123,10 @@ copyright notices and license terms. -->
             <field name="action" ref="redyser_zip_load_wizard"/>
             <field name="sequence" eval="50"/>
         </record>
+        <menuitem name="Update Redyser Zips"
+            parent="menu_carrier_api_redyser_zip_form"
+            action="redyser_zip_load_wizard"
+            id="menu_redyser_zip_load_wizard"/>
 
         <!-- Sequence -->
         <record model="ir.sequence.type" id="sequence_type_carrier_api_redyser">

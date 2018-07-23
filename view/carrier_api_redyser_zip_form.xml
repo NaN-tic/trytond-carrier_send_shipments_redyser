@@ -7,12 +7,14 @@ copyright notices and license terms. -->
     <field name="postal_code"/>
     <label name="country_code"/>
     <field name="country_code"/>
-    <label name="center_code"/>
-    <field name="center_code"/>
     <label name="center_name"/>
     <field name="center_name"/>
+    <label name="mnemonic"/>
+    <field name="mnemonic"/>
     <label name="service_1030"/>
     <field name="service_1030"/>
+    <label name="today_pickup"/>
+    <field name="today_pickup"/>
     <label name="service_saturday"/>
     <field name="service_saturday"/>
     <label name="max_pickup_time"/>
