@@ -206,7 +206,7 @@
 				<textFieldExpression><![CDATA[$F{weight}+" "+$F{weight_uom}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="127" width="178" height="31" forecolor="#808080" uuid="f4978ec7-db63-4c34-bb40-fe1350a3576e"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="127" width="178" height="31" forecolor="#010101" uuid="f4978ec7-db63-4c34-bb40-fe1350a3576e"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
