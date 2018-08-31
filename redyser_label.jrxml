@@ -175,14 +175,14 @@
 					<font size="20"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{channeling}.split()[0]]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{channeling} ? $F{channeling}.split()[0] : '']]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="170" y="5" width="120" height="22" uuid="a56a2ec5-8eb4-40cb-9f89-07acff439bd8"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{channeling}.split(' ',2)[1]]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{channeling} ? $F{channeling}.split(' ',2)[1] : '']]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="FixRelativeToBottom" x="120" y="27" width="189" height="18" uuid="d50ea5ee-9f6e-451c-97bf-4cb64db00c03"/>
