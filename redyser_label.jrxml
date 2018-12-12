@@ -164,13 +164,13 @@
 	<pageHeader>
 		<band height="188">
 			<rectangle>
-				<reportElement positionType="FixRelativeToBottom" x="120" y="0" width="189" height="45" uuid="e51623ca-7efb-4576-ae5f-04e32e6317d8"/>
+				<reportElement positionType="FixRelativeToBottom" x="110" y="0" width="199" height="45" uuid="e51623ca-7efb-4576-ae5f-04e32e6317d8"/>
 			</rectangle>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="2" y="47" width="307" height="1" uuid="cadc68f6-462d-4d78-8679-14c7c0924afa"/>
 			</line>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="120" y="5" width="50" height="30" uuid="faf30060-9ae2-4f6d-a349-94f7748da5d8"/>
+				<reportElement positionType="FixRelativeToBottom" x="110" y="5" width="60" height="40" uuid="faf30060-9ae2-4f6d-a349-94f7748da5d8"/>
 				<textElement>
 					<font size="20"/>
 					<paragraph leftIndent="5"/>
@@ -178,7 +178,7 @@
 				<textFieldExpression><![CDATA[$F{channeling} ? $F{channeling}.split()[0] : '']]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="170" y="5" width="120" height="22" uuid="a56a2ec5-8eb4-40cb-9f89-07acff439bd8"/>
+				<reportElement positionType="FixRelativeToBottom" x="170" y="5" width="138" height="22" uuid="a56a2ec5-8eb4-40cb-9f89-07acff439bd8"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
@@ -190,12 +190,12 @@
 				<textFieldExpression><![CDATA[$F{delivery-city}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="25" width="120" height="20" uuid="5555b137-2743-4b37-b250-51f4df356cf7"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="25" width="110" height="20" uuid="5555b137-2743-4b37-b250-51f4df356cf7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{carrier-service}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="0" y="2" width="120" height="25" uuid="cbffc456-43fd-4cf9-8daf-819c960191cd"/>
+				<reportElement x="0" y="2" width="110" height="25" uuid="cbffc456-43fd-4cf9-8daf-819c960191cd"/>
 				<imageExpression><![CDATA[$P{SOURCES_DIR}+"redyser_logo.png"]]></imageExpression>
 			</image>
 			<textField>
@@ -224,7 +224,7 @@
 				<textFieldExpression><![CDATA[$F{package} + '-' + $F{number-packages}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="4" y="93" width="178" height="11" uuid="a53b3752-e7b2-4340-b436-c640bad0ef92"/>
+				<reportElement x="4" y="93" width="306" height="11" uuid="a53b3752-e7b2-4340-b436-c640bad0ef92"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -245,7 +245,7 @@
 				<textFieldExpression><![CDATA[$F{shipment-code}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="82" width="178" height="11" uuid="89060d02-b086-4c2a-8ebd-1fc3bbeb16c2"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="82" width="306" height="11" uuid="89060d02-b086-4c2a-8ebd-1fc3bbeb16c2"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -259,7 +259,7 @@
 				<textFieldExpression><![CDATA["PESO: "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="71" width="178" height="11" uuid="451a1fc8-014e-4e0f-a5ce-dab1901d05fc"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="71" width="306" height="11" uuid="451a1fc8-014e-4e0f-a5ce-dab1901d05fc"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -276,7 +276,7 @@
 				<reportElement positionType="FixRelativeToBottom" x="0" y="103" width="307" height="1" uuid="b684983a-7302-4fca-83c4-19fd642ff837"/>
 			</line>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="60" width="178" height="11" uuid="47a89a9d-3135-4ac7-90e3-82e9530acbfb"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="60" width="306" height="11" uuid="47a89a9d-3135-4ac7-90e3-82e9530acbfb"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -297,7 +297,7 @@
 				<textFieldExpression><![CDATA["Destinatario: "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="158" width="178" height="11" uuid="145ee302-06a2-4fdb-bd75-02df36d7a3b2"/>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="158" width="306" height="11" uuid="145ee302-06a2-4fdb-bd75-02df36d7a3b2"/>
 				<textElement textAlignment="Left">
 					<font size="8"/>
 				</textElement>
